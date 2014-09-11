@@ -1,13 +1,10 @@
-package ohjelmointiharj.pacman;
+package pacman.kayttoliittyma;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+import pacman.sovelluslogiikka.Peli;
+
+public class Main {
+
+    public static void main(String[] args) {
+           Peli peli = new Peli();
     }
 }
