@@ -37,11 +37,20 @@ public class GridTest {
     }
 
     @Test
-    public void pisteAlkioidenLuonti() {
+    public void taulukkoOlemassa() {
         boolean onOlemassa = false;
         if (g.ruudut != null) {
             onOlemassa = true;
         }
         assertEquals(true, onOlemassa);
+    }
+    
+    @Test
+    public void taulukkoOikeanKokoinen() {
+        int leveys= 12;
+        int korkeus=11;
+        int yht=leveys+korkeus;
+        int taulukonKoko=g.ruudut.size() + g.ruudut.get(0).size();
+        assertEquals(yht, taulukonKoko);
     }
 }

@@ -19,6 +19,30 @@ public class Ruutu {
     public void setY(int y) {
         this.y = y;
     }
+    
+    public void setYlos(int i) {
+        if (i==0 || i==1){
+            this.suunnat[0]=i;
+        }         
+    }
+
+    public void setAlas(int i) {
+        if (i==0 || i==1){
+            this.suunnat[1]=i;
+        } 
+    }
+
+    public void setVasemmalle(int i) {
+        if (i==0 || i==1){
+            this.suunnat[2]=i;
+        } 
+    }
+
+    public void setOikealle(int i) {
+        if (i==0 || i==1){
+            this.suunnat[3]=i;
+        } 
+    }
 
     public void setSisalto(Piste sisalto) {
         this.sisalto = sisalto;
@@ -29,20 +53,20 @@ public class Ruutu {
     }
 
     //getterit
-    public int getYlos() {
-        return suunnat[0];
+    public boolean getYlos() {
+        return this.suunnat[0]==1;
     }
 
-    public int getAlas() {
-        return suunnat[1];
+    public boolean getAlas() {
+        return this.suunnat[1]==1;
     }
 
-    public int getVasemmalle() {
-        return suunnat[2];
+    public boolean getVasemmalle() {
+        return this.suunnat[2]==1;
     }
 
-    public int getOikealle() {
-        return suunnat[3];
+    public boolean getOikealle() {
+        return this.suunnat[3]==1;
     }
 
     public Piste getSisalto() {
