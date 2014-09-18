@@ -19,6 +19,8 @@ import static org.junit.Assert.*;
  */
 public class PisteTest {
     
+    Piste p;
+    
     public PisteTest() {
     }
     
@@ -32,6 +34,7 @@ public class PisteTest {
     
     @Before
     public void setUp() {
+        this.p = new Piste();
     }
     
     @After
@@ -40,36 +43,19 @@ public class PisteTest {
 
     @Test
     public void testSomeMethod() {
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1, 1);
     }
 
-    /**
-     * Test of syodaan method, of class Piste.
-     */
     @Test
     public void testSyodaan() {
-        System.out.println("syodaan");
-        Piste instance = new Piste();
-        int expResult = 0;
-        int result = instance.syodaan();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        p.syodaan();
+        assertEquals(true, p.syoty);
     }
 
-    /**
-     * Test of onkoSyoty method, of class Piste.
-     */
     @Test
     public void testOnkoSyoty() {
-        System.out.println("onkoSyoty");
-        Piste instance = new Piste();
-        boolean expResult = false;
-        boolean result = instance.onkoSyoty();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        boolean x = p.onkoSyoty();
+        assertEquals(false, x);
     }
     
 }
