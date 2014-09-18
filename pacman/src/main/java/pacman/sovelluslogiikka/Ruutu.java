@@ -9,6 +9,9 @@ public class Ruutu {
 
     public Ruutu() {
         this.sisalto = new Piste();
+        for (int i = 0; i < 4; i++) {
+            suunnat[i]=0;
+        }
     }
 
     //setterit
@@ -19,31 +22,7 @@ public class Ruutu {
     public void setY(int y) {
         this.y = y;
     }
-    
-    public void setYlos(int i) {
-        if (i==0 || i==1){
-            this.suunnat[0]=i;
-        }         
-    }
-
-    public void setAlas(int i) {
-        if (i==0 || i==1){
-            this.suunnat[1]=i;
-        } 
-    }
-
-    public void setVasemmalle(int i) {
-        if (i==0 || i==1){
-            this.suunnat[2]=i;
-        } 
-    }
-
-    public void setOikealle(int i) {
-        if (i==0 || i==1){
-            this.suunnat[3]=i;
-        } 
-    }
-
+  
     public void setSisalto(Piste sisalto) {
         this.sisalto = sisalto;
     }
@@ -73,4 +52,37 @@ public class Ruutu {
         return sisalto;
     }
 
+    
+//asettaa sallitut kulkusuunnat ruudusta (0=ei sallittu, 1=sallittu)
+//a=ylös,b=alas,c=vasen,d=oikea    
+    void asetaSuuntaParametrit(int a, int b, int c, int d) {
+        this.setYlos(a);
+        this.setAlas(b);
+        this.setVasemmalle(c);
+        this.setOikealle(d);
+    }
+
+    private void setYlos(int i) {
+        if (i==0 || i==1){
+            this.suunnat[0]=i;
+        }         
+    }
+
+    private void setAlas(int i) {
+        if (i==0 || i==1){
+            this.suunnat[1]=i;
+        } 
+    }
+
+    private void setVasemmalle(int i) {
+        if (i==0 || i==1){
+            this.suunnat[2]=i;
+        } 
+    }
+
+    private void setOikealle(int i) {
+        if (i==0 || i==1){
+            this.suunnat[3]=i;
+        } 
+    }
 }

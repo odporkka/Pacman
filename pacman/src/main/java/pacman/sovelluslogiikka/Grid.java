@@ -11,11 +11,11 @@ public class Grid {
     ArrayList<Haamu> haamut;
 
     public Grid() {
-        this.ruudut = luoRuudut();
+        this.ruudut = luoTaulukko();
         this.totalScore = 0;
     }
 
-    private ArrayList<ArrayList<Ruutu>> luoRuudut() {
+    private ArrayList<ArrayList<Ruutu>> luoTaulukko() {
         //luodaan sarake kerrallaan, kentta on aina sama joten sen voi hardcodettaa
         //myoskin liikkumisrajoitteet olisi melko hankala generoida joten hardcode helpompaa
         ArrayList<Ruutu> sarake0 = luoSarake0();
@@ -58,9 +58,9 @@ public class Grid {
         x.get(1).asetaSuuntaParametrit(1, 1, 0, 0);
         x.get(2).asetaSuuntaParametrit(1, 1, 0, 1);
         x.get(3).asetaSuuntaParametrit(1, 0, 0, 1);
-        x.add(4, null);
+        x.set(4, null);
         x.get(5).asetaSuuntaParametrit(0, 0, 0, 1);
-        x.add(6, null);
+        x.set(6, null);
         x.get(7).asetaSuuntaParametrit(0, 1, 0, 1);
         x.get(8).asetaSuuntaParametrit(1, 0, 0, 1);
         x.get(9).asetaSuuntaParametrit(0, 1, 0, 1);
@@ -72,12 +72,12 @@ public class Grid {
         ArrayList<Ruutu> x = new ArrayList<>(11);
         luoRuudut(x);
         x.get(0).asetaSuuntaParametrit(0, 0, 1, 1);
-        x.add(1, null);
+        x.set(1, null);
         x.get(2).asetaSuuntaParametrit(0, 0, 1, 1);
         x.get(3).asetaSuuntaParametrit(0, 0, 1, 1);
-        x.add(4, null);
+        x.set(4, null);
         x.get(5).asetaSuuntaParametrit(0, 0, 1, 1);
-        x.add(6, null);
+        x.set(6, null);
         x.get(7).asetaSuuntaParametrit(0, 0, 1, 1);
         x.get(8).asetaSuuntaParametrit(0, 1, 1, 0);
         x.get(9).asetaSuuntaParametrit(1, 0, 1, 1);
@@ -106,7 +106,7 @@ public class Grid {
         ArrayList<Ruutu> x = new ArrayList<>(11);
         luoRuudut(x);
         x.get(0).asetaSuuntaParametrit(0, 0, 1, 1);
-        x.add(1, null);
+        x.set(1, null);
         x.get(2).asetaSuuntaParametrit(0, 1, 1, 1);
         x.get(3).asetaSuuntaParametrit(1, 0, 0, 1);
         x.get(4).asetaSuuntaParametrit(0, 1, 0, 1);
@@ -123,12 +123,12 @@ public class Grid {
         ArrayList<Ruutu> x = new ArrayList<>(11);
         luoRuudut(x);
         x.get(0).asetaSuuntaParametrit(0, 0, 1, 1);
-        x.add(1, null);
+        x.set(1, null);
         x.get(2).asetaSuuntaParametrit(0, 0, 1, 1);
         x.get(3).asetaSuuntaParametrit(0, 0, 1, 1);
         x.get(4).asetaSuuntaParametrit(0, 0, 1, 1);
-        x.add(5, null);
-        x.add(6, null);
+        x.set(5, null);
+        x.set(6, null);
         x.get(7).asetaSuuntaParametrit(0, 0, 1, 1);
         x.get(8).asetaSuuntaParametrit(0, 0, 1, 1);
         x.get(9).asetaSuuntaParametrit(0, 0, 1, 1);
@@ -144,8 +144,8 @@ public class Grid {
         x.get(2).asetaSuuntaParametrit(1, 0, 1, 1);
         x.get(3).asetaSuuntaParametrit(0, 1, 1, 0);
         x.get(4).asetaSuuntaParametrit(1, 0, 1, 1);
-        x.add(5, null);
-        x.add(6, null);
+        x.set(5, null);
+        x.set(6, null);
         x.get(7).asetaSuuntaParametrit(0, 1, 1, 0);
         x.get(8).asetaSuuntaParametrit(1, 0, 1, 1);
         x.get(9).asetaSuuntaParametrit(0, 1, 1, 0);
@@ -161,8 +161,8 @@ public class Grid {
         x.get(2).asetaSuuntaParametrit(1, 0, 1, 1);
         x.get(3).asetaSuuntaParametrit(0, 1, 0, 1);
         x.get(4).asetaSuuntaParametrit(1, 0, 1, 1);
-        x.add(5, null);
-        x.add(6, null);
+        x.set(5, null);
+        x.set(6, null);
         x.get(7).asetaSuuntaParametrit(0, 1, 0, 1);
         x.get(8).asetaSuuntaParametrit(1, 0, 1, 1);
         x.get(9).asetaSuuntaParametrit(0, 1, 0, 1);
@@ -174,12 +174,12 @@ public class Grid {
         ArrayList<Ruutu> x = new ArrayList<>(11);
         luoRuudut(x);
         x.get(0).asetaSuuntaParametrit(0, 0, 1, 1);
-        x.add(1, null);
+        x.set(1, null);
         x.get(2).asetaSuuntaParametrit(0, 0, 1, 1);
         x.get(3).asetaSuuntaParametrit(0, 0, 1, 1);
         x.get(4).asetaSuuntaParametrit(0, 0, 1, 1);
-        x.add(5, null);
-        x.add(6, null);
+        x.set(5, null);
+        x.set(6, null);
         x.get(7).asetaSuuntaParametrit(0, 0, 1, 1);
         x.get(8).asetaSuuntaParametrit(0, 0, 1, 1);
         x.get(9).asetaSuuntaParametrit(0, 0, 1, 1);
@@ -191,7 +191,7 @@ public class Grid {
         ArrayList<Ruutu> x = new ArrayList<>(11);
         luoRuudut(x);
         x.get(0).asetaSuuntaParametrit(0, 0, 1, 1);
-        x.add(1, null);
+        x.set(1, null);
         x.get(2).asetaSuuntaParametrit(0, 1, 1, 1);
         x.get(3).asetaSuuntaParametrit(1, 0, 1, 0);
         x.get(4).asetaSuuntaParametrit(0, 1, 1, 0);
@@ -225,12 +225,12 @@ public class Grid {
         ArrayList<Ruutu> x = new ArrayList<>(11);
         luoRuudut(x);
         x.get(0).asetaSuuntaParametrit(0, 0, 1, 1);
-        x.add(1, null);
+        x.set(1, null);
         x.get(2).asetaSuuntaParametrit(0, 0, 1, 1);
         x.get(3).asetaSuuntaParametrit(0, 0, 1, 1);
-        x.add(4, null);
+        x.set(4, null);
         x.get(5).asetaSuuntaParametrit(0, 0, 1, 1);
-        x.add(6, null);
+        x.set(6, null);
         x.get(7).asetaSuuntaParametrit(0, 0, 1, 1);
         x.get(8).asetaSuuntaParametrit(0, 1, 0, 1);
         x.get(9).asetaSuuntaParametrit(1, 0, 1, 1);
@@ -245,9 +245,9 @@ public class Grid {
         x.get(1).asetaSuuntaParametrit(1, 1, 0, 0);
         x.get(2).asetaSuuntaParametrit(1, 1, 1, 0);
         x.get(3).asetaSuuntaParametrit(1, 0, 1, 0);
-        x.add(4, null);
+        x.set(4, null);
         x.get(5).asetaSuuntaParametrit(0, 0, 1, 0);
-        x.add(6, null);
+        x.set(6, null);
         x.get(7).asetaSuuntaParametrit(0, 1, 1, 0);
         x.get(8).asetaSuuntaParametrit(1, 0, 1, 0);
         x.get(9).asetaSuuntaParametrit(0, 1, 1, 0);
@@ -257,8 +257,8 @@ public class Grid {
 
     //luodaan Ruutu oliot taulukkoon, Ruutu-olion konstruktori luo myos Piste-olion
     private void luoRuudut(ArrayList<Ruutu> x) {
-        for (Ruutu ruutu : x) {
-            ruutu = new Ruutu();
+        for (int i = 0; i < 11; i++) {
+            x.add(i, new Ruutu());
         }
     }
 }

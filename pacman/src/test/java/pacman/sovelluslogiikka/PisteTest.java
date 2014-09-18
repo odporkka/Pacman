@@ -43,5 +43,33 @@ public class PisteTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of syodaan method, of class Piste.
+     */
+    @Test
+    public void testSyodaan() {
+        System.out.println("syodaan");
+        Piste instance = new Piste();
+        int expResult = 0;
+        int result = instance.syodaan();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of onkoSyoty method, of class Piste.
+     */
+    @Test
+    public void testOnkoSyoty() {
+        System.out.println("onkoSyoty");
+        Piste instance = new Piste();
+        boolean expResult = false;
+        boolean result = instance.onkoSyoty();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }

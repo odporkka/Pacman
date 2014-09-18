@@ -2,13 +2,15 @@
 package pacman.sovelluslogiikka;
 
 public class Hedelma extends Piste {
-    private final Pacman pacman;
+    public Pacman pacman;
 
-    public Hedelma(Pacman pacman) {
-        this.pacman = pacman;
+    public Hedelma() {
     }
     
-
+    public void setPacman(Pacman p){
+        this.pacman = p;
+    }
+    
     @Override
     public int syodaan() {
         this.syoty = true;

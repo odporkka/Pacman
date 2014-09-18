@@ -51,6 +51,8 @@ public class GridTest {
         int korkeus=11;
         int yht=leveys+korkeus;
         int taulukonKoko=g.ruudut.size() + g.ruudut.get(0).size();
+        System.out.println(g.ruudut.size());
+        System.out.println(g.ruudut.get(0).size());
         assertEquals(yht, taulukonKoko);
     }
 }
