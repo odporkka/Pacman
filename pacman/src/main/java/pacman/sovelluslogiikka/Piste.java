@@ -1,12 +1,19 @@
 package pacman.sovelluslogiikka;
 
 public class Piste {
-    int x;
-    int y;
-    public static final int arvo = 10;
+    
+    boolean syoty;
 
     public Piste() {
+        this.syoty = false;
     }
     
+    public int syodaan(){
+        this.syoty = true;
+        return 10;
+    }
     
+    public boolean onkoSyoty(){
+        return this.syoty;
+    }
 }

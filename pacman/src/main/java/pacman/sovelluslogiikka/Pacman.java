@@ -11,5 +11,9 @@ package pacman.sovelluslogiikka;
  * @author odporkka
  */
 public class Pacman {
+
+    void annaImmunity() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
