@@ -8,6 +8,7 @@ package pacman.sovelluslogiikka;
 public class Piste {
     
     boolean syoty;
+    private final int ansaitutPisteet = 10;
 
     public Piste() {
         this.syoty = false;
@@ -15,7 +16,7 @@ public class Piste {
     
     public int syodaan(){
         this.syoty = true;
-        return 10;
+        return ansaitutPisteet;
     }
     
     public boolean onkoSyoty(){

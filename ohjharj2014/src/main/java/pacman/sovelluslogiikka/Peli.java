@@ -1,8 +1,11 @@
-//Koko pelin komponentit 
-
 package pacman.sovelluslogiikka;
 
 import java.util.ArrayList;
+
+/**
+ * Peli-olio sisaltaa sisallaan kaikki sovelluslogiikan komponenetit ja hoitaa
+ * itse pelin pyorittamisen.
+ */
 
 public class Peli {
     Grid lauta;

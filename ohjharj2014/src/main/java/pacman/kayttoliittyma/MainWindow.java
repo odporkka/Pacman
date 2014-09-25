@@ -10,6 +10,11 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import pacman.sovelluslogiikka.Peli;
 
+/**
+ * Kayttoliittyman paaikkuna joka pitaa sisallaan kaikki pelin elementit
+ * (kayttoliittyman osat ja peli-olion).
+ */
+
 public class MainWindow implements Runnable{
 
     private JFrame frame;

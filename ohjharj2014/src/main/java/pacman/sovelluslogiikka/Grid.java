@@ -1,7 +1,10 @@
-// pelilauta ja sen sisaltamat komponentit
 package pacman.sovelluslogiikka;
 
 import java.util.ArrayList;
+
+/**
+ * Luokka pelilaudan taulukkoa varten. Sisaltaa ruudut, liikkuvat osat sek pisteet.
+ */
 
 public class Grid {
 

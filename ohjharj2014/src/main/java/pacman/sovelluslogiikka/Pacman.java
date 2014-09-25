@@ -1,5 +1,9 @@
 package pacman.sovelluslogiikka;
 
+/**
+ * Pelaajan ohjaama hahmo Pacman.
+ */
+
 public class Pacman {
 
     int x;
@@ -21,6 +25,14 @@ public class Pacman {
         } else if (suunta == 'o'){
             this.x++;
         }
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     void annaImmunity() {
