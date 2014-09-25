@@ -44,18 +44,6 @@ public class RuutuTest {
     }
 
     @Test
-    public void testSetX() {
-        r.setX(5);
-        assertEquals(5, r.x);
-    }
-
-    @Test
-    public void testSetY() {
-        r.setY(5);
-        assertEquals(5, r.y);
-    }
-
-    @Test
     public void testSetSisalto() {
         Piste p = new Piste();
         r.setSisalto(p);

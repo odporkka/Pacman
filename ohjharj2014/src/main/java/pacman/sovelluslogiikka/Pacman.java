@@ -1,19 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package pacman.sovelluslogiikka;
 
-/**
- *
- * @author odporkka
- */
 public class Pacman {
 
-    void annaImmunity() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    int x;
+    int y;
+    boolean immuuni;
+
+    public Pacman() {
+        this.x = 0;
+        this.y = 0;
     }
-    
+
+    public void liiku(char suunta) {
+        if (suunta == 'y'){
+            this.y--;
+        } else if (suunta == 'a'){
+            this.y++;
+        } else if (suunta == 'v'){
+            this.x--;
+        } else if (suunta == 'o'){
+            this.x++;
+        }
+    }
+
+    void annaImmunity() {
+        
+    }
+
 }

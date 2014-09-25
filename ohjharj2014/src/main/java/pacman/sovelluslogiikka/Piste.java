@@ -1,5 +1,10 @@
 package pacman.sovelluslogiikka;
 
+/**
+ * Yksinkertainen luokka pisteitä varten. Sisaltaa tiedon onko piste jo syoty
+ * ja metodin syomista varten.
+ */
+
 public class Piste {
     
     boolean syoty;
