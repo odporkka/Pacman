@@ -20,8 +20,37 @@ public class Peli {
     }
 
     private ArrayList<Haamu> luoHaamut() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Haamu> x = new ArrayList<>();
+        Haamu h1 = new Haamu(5, 5);
+        Haamu h2 = new Haamu(6, 5);
+        Haamu h3 = new Haamu(6, 6);
+        x.add(h1);
+        x.add(h2);
+        x.add(h3);
+        return x;
+    }
+
+    public Pacman getPacman() {
+        return pacman;
+    }
+
+    public ArrayList<Haamu> getHaamut() {
+        return haamut;
     }
     
+    public void etene(){
+        liikutaPacmania();
+    }
+
+    private void liikutaPacmania() {
+        int x_jako = pacman.getX() % 30;
+        int y_jako = pacman.getY() % 30; 
+        
+        if (x_jako == 0 && y_jako == 0){
+            pacman.nykyinenSuunta = pacman.seuraavaSuunta;
+        }
+        
+        pacman.liiku(pacman.nykyinenSuunta);
+    }
     
 }

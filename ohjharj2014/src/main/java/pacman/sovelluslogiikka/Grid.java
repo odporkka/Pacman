@@ -3,7 +3,11 @@ package pacman.sovelluslogiikka;
 import java.util.ArrayList;
 
 /**
- * Luokka pelilaudan taulukkoa varten. Sisaltaa ruudut, liikkuvat osat sek pisteet.
+ * Luokka pelilaudan ruudukkoa varten. Ruudut ovat kaksinkertaisessa ArrayListissa
+ * jossa jokainen sarake on ArrayList joka sisaltaa itse ruudut ja sarakkeiden listat
+ * ovat toisessa ArrayListissa. Nain ollen listasta haettaessa ensimmaisen listan
+ * indeksi toimii x-kordinaattina ja sarakkeen indeksi y-kordinaattina. Javalle tyypillisesti
+ * x arvo kavaa normaalisti vasemmalta oikealle, mutta y-arvo ylhaalta alas.
  */
 
 public class Grid {
