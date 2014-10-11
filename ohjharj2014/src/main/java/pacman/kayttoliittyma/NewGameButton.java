@@ -1,24 +1,20 @@
 package pacman.kayttoliittyma;
 
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import pacman.sovelluslogiikka.Peli;
 
 /**
  * Luokka NewGame-nappia varten.
  */
 
-public class NewGameButton extends JButton implements ActionListener{
+public class NewGameButton extends JButton{   
 
-    public NewGameButton() {
+    public NewGameButton(Peli p) {
         this.setPreferredSize(new Dimension(350, 75));
-        this.setText("New Game!");
+        this.setText("New Game! (F2)");
+        this.addActionListener(new NewGameListener(p));
+        this.setFocusable(false);
+        this.setAlignmentX(LEFT);
     }
-
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

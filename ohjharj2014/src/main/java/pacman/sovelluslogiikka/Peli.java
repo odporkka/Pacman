@@ -8,9 +8,10 @@ import java.util.ArrayList;
  */
 public class Peli {
 
-    private Grid lauta;
-    private Pacman pacman;
-    private ArrayList<Haamu> haamut;
+    private final Grid lauta;
+    private final Pacman pacman;
+    private final ArrayList<Haamu> haamut;
+    
 
 //Luodaan peli-olio, joka sisältää pelaajan (Pacman), pelilaudan ja haamut. 
     public Peli() {
@@ -52,10 +53,14 @@ public class Peli {
         if (x_jako == 0 && y_jako == 0) {
             Ruutu r = lauta.ruudut.get(x).get(y);
             syo(r);
+            if (this.lauta.getTotalScore()%1100 == 0){
+                this.newLevel();
+                return;
+            }
             if (r.saakoLiikkua(pacman.seuraavaSuunta)) {
                 pacman.nykyinenSuunta = pacman.seuraavaSuunta;
                 pacman.liiku(pacman.nykyinenSuunta);
-            } else if (r.saakoLiikkua(pacman.nykyinenSuunta)){
+            } else if (r.saakoLiikkua(pacman.nykyinenSuunta)) {
                 pacman.liiku(pacman.nykyinenSuunta);
             } else {
             }
@@ -69,11 +74,44 @@ public class Peli {
     }
 
     private void syo(Ruutu r) {
-        if (r != null){
+        if (r != null) {
             Piste p = r.getSisalto();
-            if (p.onkoSyoty()== false){
-                this.lauta.totalScore += p.syodaan();
+            if (p.onkoSyoty() == false) {
+                this.lauta.lisaaScore(p.syodaan());
             }
-        }      
+        }
+    }
+
+    public void newGame() {
+        this.newLevel();
+
+        this.lauta.nollaaScore();
+    }
+
+    private void resetoiRuudut(ArrayList<ArrayList<Ruutu>> r) {
+        for (ArrayList<Ruutu> arrayList : r) {
+            for (Ruutu ruutu : arrayList) {
+                if (ruutu != null) {
+                    ruutu.getSisalto().resetoi();
+                }
+            }
+        }
+    }
+
+    public void newLevel() {
+        this.pacman.setX(60);
+        this.pacman.setY(150);
+        this.pacman.nykyinenSuunta = 'a';
+        this.pacman.seuraavaSuunta = 'a';
+
+        haamut.get(0).setX(5);
+        haamut.get(1).setX(6);
+        haamut.get(2).setX(6);
+        haamut.get(0).setY(5);
+        haamut.get(1).setY(5);
+        haamut.get(2).setY(6);
+
+        resetoiRuudut(lauta.getRuudut());
+        lauta.nextLevel();
     }
 }

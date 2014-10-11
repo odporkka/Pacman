@@ -2,6 +2,8 @@ package pacman.kayttoliittyma;
 
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.event.ComponentListener;
+import java.util.Timer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BoxLayout;
@@ -23,9 +25,9 @@ public class MainWindow extends JFrame implements Runnable {
     private KeyBoardListener kbl;
     private ScoreLabel sl;
     private final Peli p;
-    
-    public MainWindow(Peli p) {
-        this.p = p;
+
+    MainWindow(Peli peli) {
+        this.p = peli;
     }
 
     @Override
@@ -47,14 +49,15 @@ public class MainWindow extends JFrame implements Runnable {
 
     private void createComponents(Container contentPane) {
         this.gw = new GameWindow(this.p);
-        this.ngb = new NewGameButton();
-        this.kbl = new KeyBoardListener(p.getPacman(), frame.getContentPane());
+        this.ngb = new NewGameButton(this.p);
+        this.kbl = new KeyBoardListener(p.getPacman(), frame.getContentPane(), p);
         this.sl = new ScoreLabel(this.p.getLauta());
         
         frame.add(ngb);
         frame.add(gw);
         frame.addKeyListener(kbl);
         frame.add(sl);
+        
     }
 
     public JFrame getFrame() {
@@ -62,9 +65,6 @@ public class MainWindow extends JFrame implements Runnable {
     }
 
     public void paivita() {
-        if(this.gw == null){
-            System.out.println("wtf!");
-        }
         this.gw.repaint();
         this.sl.paivita();
     }

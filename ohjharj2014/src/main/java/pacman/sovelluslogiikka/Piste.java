@@ -22,4 +22,8 @@ public class Piste {
     public boolean onkoSyoty(){
         return this.syoty;
     }
+    
+    public void resetoi(){
+        this.syoty = false;
+    }
 }

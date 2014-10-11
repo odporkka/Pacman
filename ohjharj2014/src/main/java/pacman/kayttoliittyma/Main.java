@@ -12,11 +12,13 @@ import pacman.sovelluslogiikka.Peli;
 public class Main {
 
     public static void main(String[] args) {
+        Timer timer = new Timer();        
         final Peli peli = new Peli();
         final MainWindow window = new MainWindow(peli);
         SwingUtilities.invokeLater(window);
         
-        Timer timer = new Timer();
+        
+        
         TimerTask task = new TimerTask() {
 
             @Override
@@ -25,6 +27,8 @@ public class Main {
                 window.paivita();
             }
         };
+        
+        
         timer.scheduleAtFixedRate(task, 1000, 10);
         
     }

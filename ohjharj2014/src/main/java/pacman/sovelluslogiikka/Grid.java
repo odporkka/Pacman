@@ -13,13 +13,15 @@ import java.util.ArrayList;
 public class Grid {
 
     ArrayList<ArrayList<Ruutu>> ruudut;
-    int totalScore;
+    private int totalScore;
     Pacman pacman;
     ArrayList<Haamu> haamut;
+    private int level;
 
     public Grid() {
         this.ruudut = luoTaulukko();
         this.totalScore = 0;
+        this.level = 1;
     }
 
     private ArrayList<ArrayList<Ruutu>> luoTaulukko() {
@@ -276,4 +278,21 @@ public class Grid {
     public int getTotalScore() {
         return totalScore;
     }    
+
+    void nollaaScore() {
+        this.totalScore = 0;
+        this.level = 1;
+    }
+
+    public int getLevel() {
+        return this.level;
+    }
+    
+    public void nextLevel(){
+        this.level ++;
+    }
+    
+    public void lisaaScore(int i){
+        this.totalScore += i;
+    }
 }

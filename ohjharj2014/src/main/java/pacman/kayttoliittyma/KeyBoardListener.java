@@ -10,19 +10,21 @@ import java.awt.Container;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import pacman.sovelluslogiikka.Pacman;
+import pacman.sovelluslogiikka.Peli;
 
 /**
  *
  * @author odporkka
  */
 public class KeyBoardListener implements KeyListener{
-    
+    Peli peli;
     Pacman p;
     Container c;
 
-    public KeyBoardListener(Pacman p, Container c) {
+    public KeyBoardListener(Pacman p, Container c, Peli peli) {
         this.p = p;
         this.c = c;
+        this.peli = peli;
     } 
 
     @Override
@@ -42,6 +44,9 @@ public class KeyBoardListener implements KeyListener{
         }
         else if (ke.getKeyCode() == KeyEvent.VK_DOWN){
             p.asetaSuunta('a');
+        }
+        else if (ke.getKeyCode() == KeyEvent.VK_F2){
+            peli.newGame();
         }
     }
 
