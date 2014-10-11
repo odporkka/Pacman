@@ -63,26 +63,6 @@ public class RuutuTest {
     }
 
     @Test
-    public void testGetYlos() {
-        assertEquals(false, r.getYlos());
-    }
-
-    @Test
-    public void testGetAlas() {
-        assertEquals(false, r.getAlas());
-    }
-
-    @Test
-    public void testGetVasemmalle() {
-        assertEquals(false, r.getVasemmalle());
-    }
-
-    @Test
-    public void testGetOikealle() {
-        assertEquals(false, r.getOikealle());
-    }
-
-    @Test
     public void testAsetaSuuntaParametrit() {
         int a = ran.nextInt(2);
         int b = ran.nextInt(2);

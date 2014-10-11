@@ -23,30 +23,34 @@ public class Ruutu {
         this.sisalto = sisalto;
     }
 
+    public Piste getSisalto() {
+        return this.sisalto;
+    }
+
     public void vaihdaPisteHedelmaan(Hedelma h) {
         this.sisalto = h;
     }
 
-    //getterit
-    public boolean getYlos() {
-        return this.suunnat[0]==1;
-    }
-
-    public boolean getAlas() {
-        return this.suunnat[1]==1;
-    }
-
-    public boolean getVasemmalle() {
-        return this.suunnat[2]==1;
-    }
-
-    public boolean getOikealle() {
-        return this.suunnat[3]==1;
-    }
-
-    public Piste getSisalto() {
-        return sisalto;
-    }
+//    //getterit
+//    public boolean getYlos() {
+//        return this.suunnat[0]==1;
+//    }
+//
+//    public boolean getAlas() {
+//        return this.suunnat[1]==1;
+//    }
+//
+//    public boolean getVasemmalle() {
+//        return this.suunnat[2]==1;
+//    }
+//
+//    public boolean getOikealle() {
+//        return this.suunnat[3]==1;
+//    }
+//
+//    public Piste getSisalto() {
+//        return sisalto;
+//    }
 
     
 //asettaa sallitut kulkusuunnat ruudusta (0=ei sallittu, 1=sallittu)
@@ -80,5 +84,26 @@ public class Ruutu {
         if (i==0 || i==1){
             this.suunnat[3]=i;
         } 
+    }
+    
+    public boolean saakoLiikkua(char c){
+        if (c == 'y') {
+            if (this.suunnat[0] == 1){
+                return true;
+            }
+        } else if (c == 'a') {
+            if (this.suunnat[1] == 1){
+                return true;
+            }
+        } else if (c == 'v') {
+            if (this.suunnat[2] == 1){
+                return true;
+            }
+        } else if (c == 'o') {
+            if (this.suunnat[3] == 1){
+                return true;
+            }
+        }       
+        return false;       
     }
 }

@@ -32,7 +32,6 @@ public class Pacman {
 //            this.x++;
             this.seuraavaSuunta = 'o';
         }
-        System.out.println("!");
     }
 
     public int getX() {
@@ -57,13 +56,13 @@ public class Pacman {
 
     public void liiku(char suunta) {
         if (suunta == 'y') {
-            this.y-=2;
+            this.y-=1;
         } else if (suunta == 'a') {
-            this.y+=2;
+            this.y+=1;
         } else if (suunta == 'v') {
-            this.x-=2;
+            this.x-=1;
         } else if (suunta == 'o') {
-            this.x+=2;
+            this.x+=1;
         }
     }
 

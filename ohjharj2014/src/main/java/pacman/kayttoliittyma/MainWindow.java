@@ -21,6 +21,7 @@ public class MainWindow extends JFrame implements Runnable {
     private GameWindow gw;
     private NewGameButton ngb;
     private KeyBoardListener kbl;
+    private ScoreLabel sl;
     private final Peli p;
     
     public MainWindow(Peli p) {
@@ -48,9 +49,12 @@ public class MainWindow extends JFrame implements Runnable {
         this.gw = new GameWindow(this.p);
         this.ngb = new NewGameButton();
         this.kbl = new KeyBoardListener(p.getPacman(), frame.getContentPane());
+        this.sl = new ScoreLabel(this.p.getLauta());
+        
         frame.add(ngb);
         frame.add(gw);
         frame.addKeyListener(kbl);
+        frame.add(sl);
     }
 
     public JFrame getFrame() {
@@ -58,6 +62,10 @@ public class MainWindow extends JFrame implements Runnable {
     }
 
     public void paivita() {
+        if(this.gw == null){
+            System.out.println("wtf!");
+        }
         this.gw.repaint();
+        this.sl.paivita();
     }
 }
