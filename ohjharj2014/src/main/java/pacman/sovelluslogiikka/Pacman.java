@@ -1,5 +1,6 @@
 package pacman.sovelluslogiikka;
 
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -8,7 +9,7 @@ import javax.imageio.ImageIO;
 /**
  * Pelaajan ohjaama hahmo Pacman.
  */
-public class Pacman {
+public final class Pacman {
 
     int x;
     int y;
@@ -21,62 +22,52 @@ public class Pacman {
     BufferedImage vasen;
 
     public Pacman() {
-        this.x = 60;
-        this.y = 150;
-        this.nykyinenSuunta = 'a';
-        this.seuraavaSuunta = 'a';
-        
+       this.resetPosition();
+
         try {
-            this.ylos = ImageIO.read(new File(
-                    "/home/odporkka/Pacmanrepo/ohjharj2014/src/main/resources/Pacman_ylos.png"));
-            this.alas = ImageIO.read(new File(
-                    "/home/odporkka/Pacmanrepo/ohjharj2014/src/main/resources/Pacman_alas.png"));
-            this.oikea = ImageIO.read(new File(
-                    "/home/odporkka/Pacmanrepo/ohjharj2014/src/main/resources/Pacman_oikea.png"));
-            this.vasen = ImageIO.read(new File(
-                    "/home/odporkka/Pacmanrepo/ohjharj2014/src/main/resources/Pacman_vasen.png"));
+            this.ylos = ImageIO.read(getClass().getClassLoader().getResource("Pacman_ylos.png"));
+            this.alas = ImageIO.read(getClass().getClassLoader().getResource("Pacman_alas.png"));
+            this.oikea = ImageIO.read(getClass().getClassLoader().getResource("Pacman_oikea.png"));
+            this.vasen = ImageIO.read(getClass().getClassLoader().getResource("Pacman_vasen.png"));
         } catch (IOException e) {
         }
     }
 
     public void asetaSuunta(char suunta) {
         if (suunta == 'y') {
-            if (this.nykyinenSuunta == 'a'){
+            if (this.nykyinenSuunta == 'a') {
                 this.nykyinenSuunta = 'y';
             }
             this.seuraavaSuunta = 'y';
         } else if (suunta == 'a') {
-            if (this.nykyinenSuunta == 'y'){
+            if (this.nykyinenSuunta == 'y') {
                 this.nykyinenSuunta = 'a';
             }
             this.seuraavaSuunta = 'a';
         } else if (suunta == 'v') {
-            if (this.nykyinenSuunta == 'o'){
+            if (this.nykyinenSuunta == 'o') {
                 this.nykyinenSuunta = 'v';
             }
             this.seuraavaSuunta = 'v';
         } else if (suunta == 'o') {
-            if (this.nykyinenSuunta == 'v'){
+            if (this.nykyinenSuunta == 'v') {
                 this.nykyinenSuunta = 'o';
             }
             this.seuraavaSuunta = 'o';
         }
     }
-    
-    public BufferedImage getImage(){
+
+    public BufferedImage getImage() {
         BufferedImage i = null;
-        if (nykyinenSuunta == 'y'){
+        if (nykyinenSuunta == 'y') {
             i = this.ylos;
-        }
-        else if (nykyinenSuunta == 'a'){
+        } else if (nykyinenSuunta == 'a') {
             i = this.alas;
-        }
-        else if (nykyinenSuunta == 'o'){
+        } else if (nykyinenSuunta == 'o') {
             i = this.oikea;
-        }
-        else if (nykyinenSuunta == 'v'){
+        } else if (nykyinenSuunta == 'v') {
             i = this.vasen;
-        }         
+        }
         return i;
     }
 
@@ -102,14 +93,36 @@ public class Pacman {
 
     public void liiku(char suunta) {
         if (suunta == 'y') {
-            this.y-=1;
+            this.y -= 1;
         } else if (suunta == 'a') {
-            this.y+=1;
+            this.y += 1;
         } else if (suunta == 'v') {
-            this.x-=1;
+            if (x - 1 < -28) {
+                this.setX(360);
+            }
+            this.x -= 1;
+
         } else if (suunta == 'o') {
-            this.x+=1;
+            if (x + 1 > 359) {
+                this.setX(-30);
+            }
+                this.x += 1;
+            
         }
     }
 
+    public void resetPosition(){
+        this.setX(0);
+        this.setY(150);
+        this.nykyinenSuunta = 'o';
+        this.seuraavaSuunta = 'o';
+    }
+    
+    private Rectangle getBounds(){
+        return new Rectangle(x+5, y+5, 20, 20);
+    }
+    
+    public boolean osuukoHaamu(Haamu h){
+        return h.getBounds().intersects(getBounds());
+    }
 }

@@ -31,9 +31,10 @@ public class GameWindow extends JPanel {
         this.setMinimumSize(new Dimension(360, 330));
         this.peli = p;
         setBackground(Color.LIGHT_GRAY);
+        ClassLoader classLoader = getClass().getClassLoader();
 
         try {
-            img = ImageIO.read(new File("/home/odporkka/Pacmanrepo/ohjharj2014/src/main/resources/pacman-map.png"));
+            img = ImageIO.read(getClass().getClassLoader().getResource("pacman-map.png"));
         } catch (IOException e) {
             System.out.println("kuvaa ei löydy!");
         }
@@ -71,10 +72,7 @@ public class GameWindow extends JPanel {
 
     private void piirraHaamut(Graphics g2) {
         for (Haamu h : peli.getHaamut()) {
-            g2.setColor(Color.black);
-            g2.fillRect(h.getX()*30+3, h.getY()*30 + 3, 20, 20);
-            g2.setColor(Color.pink);
-            g2.fillRect(h.getX()*30 + 5, h.getY()*30 + 5, 15, 15);
+            g2.drawImage(h.getImg(), h.getX(), h.getY(), null);
         }
     }
 }

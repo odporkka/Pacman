@@ -68,7 +68,7 @@ public class Grid {
         x.get(2).asetaSuuntaParametrit(1, 1, 0, 1);
         x.get(3).asetaSuuntaParametrit(1, 0, 0, 1);
         x.set(4, null);
-        x.get(5).asetaSuuntaParametrit(0, 0, 0, 1);
+        x.get(5).asetaSuuntaParametrit(0, 0, 1, 1);
         x.set(6, null);
         x.get(7).asetaSuuntaParametrit(0, 1, 0, 1);
         x.get(8).asetaSuuntaParametrit(1, 0, 0, 1);
@@ -153,8 +153,8 @@ public class Grid {
         x.get(2).asetaSuuntaParametrit(1, 0, 1, 1);
         x.get(3).asetaSuuntaParametrit(0, 1, 1, 0);
         x.get(4).asetaSuuntaParametrit(1, 0, 1, 1);
-        x.set(5, null);
-        x.set(6, null);
+        x.get(5).asetaSuuntaParametrit(1, 0, 0, 0);
+        x.get(6).asetaSuuntaParametrit(1, 0, 0, 0);
         x.get(7).asetaSuuntaParametrit(0, 1, 1, 0);
         x.get(8).asetaSuuntaParametrit(1, 0, 1, 1);
         x.get(9).asetaSuuntaParametrit(0, 1, 1, 0);
@@ -170,8 +170,8 @@ public class Grid {
         x.get(2).asetaSuuntaParametrit(1, 0, 1, 1);
         x.get(3).asetaSuuntaParametrit(0, 1, 0, 1);
         x.get(4).asetaSuuntaParametrit(1, 0, 1, 1);
-        x.set(5, null);
-        x.set(6, null);
+        x.get(5).asetaSuuntaParametrit(1, 0, 0, 0);
+        x.get(6).asetaSuuntaParametrit(1, 0, 0, 0);
         x.get(7).asetaSuuntaParametrit(0, 1, 0, 1);
         x.get(8).asetaSuuntaParametrit(1, 0, 1, 1);
         x.get(9).asetaSuuntaParametrit(0, 1, 0, 1);
@@ -255,7 +255,7 @@ public class Grid {
         x.get(2).asetaSuuntaParametrit(1, 1, 1, 0);
         x.get(3).asetaSuuntaParametrit(1, 0, 1, 0);
         x.set(4, null);
-        x.get(5).asetaSuuntaParametrit(0, 0, 1, 0);
+        x.get(5).asetaSuuntaParametrit(0, 0, 1, 1);
         x.set(6, null);
         x.get(7).asetaSuuntaParametrit(0, 1, 1, 0);
         x.get(8).asetaSuuntaParametrit(1, 0, 1, 0);
