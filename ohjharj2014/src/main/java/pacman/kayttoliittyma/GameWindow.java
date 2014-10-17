@@ -5,15 +5,13 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import pacman.sovelluslogiikka.Peli;
-import pacman.sovelluslogiikka.Piste;
 import pacman.sovelluslogiikka.Ruutu;
-import pacman.sovelluslogiikka.Grid;
+import pacman.sovelluslogiikka.Ruudukko;
 import pacman.sovelluslogiikka.Haamu;
 
 /**
@@ -25,6 +23,12 @@ public class GameWindow extends JPanel {
     private final Peli peli;
     private BufferedImage img;
 
+    /**
+     * Luo peli-ikkunan ja lisaa nykyisen pelin attribuutiksi. Hakee myos kuvan
+     * taustaa varten.
+     * 
+     * @param p 
+     */
     public GameWindow(Peli p) {
 
         this.setMaximumSize(new Dimension(360, 330));
@@ -46,17 +50,13 @@ public class GameWindow extends JPanel {
         super.paintComponent(g2);
         setDoubleBuffered(true);
         g2.drawImage(img, 0, 0, null);
-//        g2.setColor(Color.black);
-//        g2.fillOval(peli.getPacman().getX() + 1, peli.getPacman().getY() + 1, 29, 29);
-//        g2.setColor(Color.yellow);
-//        g2.fillOval(peli.getPacman().getX() + 3, peli.getPacman().getY() + 3, 25, 25);
         g2.drawImage(peli.getPacman().getImage(), peli.getPacman().getX(), peli.getPacman().getY(), null);
         piirraPisteet(g2);
         piirraHaamut(g2);
     }
 
     private void piirraPisteet(Graphics g) {
-        Grid l = peli.getLauta();
+        Ruudukko l = peli.getLauta();
         ArrayList<ArrayList<Ruutu>> x = l.getRuudut();
         g.setColor(Color.black);
         for (int i = 0; i < 12; i++) {

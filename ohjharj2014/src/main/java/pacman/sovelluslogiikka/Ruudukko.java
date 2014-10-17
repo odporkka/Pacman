@@ -3,25 +3,61 @@ package pacman.sovelluslogiikka;
 import java.util.ArrayList;
 
 /**
- * Luokka pelilaudan ruudukkoa varten. Ruudut ovat kaksinkertaisessa ArrayListissa
+ * Luokka pelilaudan ruudukkoa varten. Ruudut ovat kaksinkertaisessa ArrayListissa,
  * jossa jokainen sarake on ArrayList joka sisaltaa itse ruudut ja sarakkeiden listat
  * ovat toisessa ArrayListissa. Nain ollen listasta haettaessa ensimmaisen listan
  * indeksi toimii x-kordinaattina ja sarakkeen indeksi y-kordinaattina. Javalle tyypillisesti
- * x arvo kavaa normaalisti vasemmalta oikealle, mutta y-arvo ylhaalta alas.
+ * x arvo kasvaa normaalisti vasemmalta oikealle, mutta y-arvo ylhaalta alas.
  */
+public class Ruudukko {
 
-public class Grid {
-
-    ArrayList<ArrayList<Ruutu>> ruudut;
-    private int totalScore;
-    Pacman pacman;
-    ArrayList<Haamu> haamut;
+    private final ArrayList<ArrayList<Ruutu>> ruudut;
+    private int kokonaisPisteet;
     private int level;
 
-    public Grid() {
+    /**
+     * Konstruktori Ruudukkoa varten. Luo kaksinkertaisen listan sisaltoineen,
+     * asettaa kokonaispisteiksi 0 ja tasoksi 1.
+     */
+    public Ruudukko() {
         this.ruudut = luoTaulukko();
-        this.totalScore = 0;
+        this.kokonaisPisteet = 0;
         this.level = 1;
+    }
+    
+    /**
+     * Nollaa pisteet ja asettaa tasoksi 1.
+     */
+    public void nollaaPisteet() {
+        this.kokonaisPisteet = 0;
+        this.level = 1;
+    }
+    
+    /**
+     * Kasvattaa tasonumeroa yhdella.
+     */
+    public void seuraavaTaso(){
+        this.level ++;
+    }
+    
+    /**
+     * Kasvattaa kokonaismisteita parametrin verran.
+     * @param i 
+     */
+    public void lisaaScore(int i){
+        this.kokonaisPisteet += i;
+    }
+    
+    public ArrayList<ArrayList<Ruutu>> getRuudut() {
+        return ruudut;
+    }
+
+    public int getTotalScore() {
+        return kokonaisPisteet;
+    } 
+    
+    public int getLevel() {
+        return this.level;
     }
 
     private ArrayList<ArrayList<Ruutu>> luoTaulukko() {
@@ -264,35 +300,9 @@ public class Grid {
         return x;
     }
 
-    //luodaan Ruutu oliot taulukkoon, Ruutu-olion konstruktori luo myos Piste-olion
     private void luoRuudut(ArrayList<Ruutu> x) {
         for (int i = 0; i < 11; i++) {
             x.add(i, new Ruutu());
         }
-    }
-
-    public ArrayList<ArrayList<Ruutu>> getRuudut() {
-        return ruudut;
-    }
-
-    public int getTotalScore() {
-        return totalScore;
-    }    
-
-    void nollaaScore() {
-        this.totalScore = 0;
-        this.level = 1;
-    }
-
-    public int getLevel() {
-        return this.level;
-    }
-    
-    public void nextLevel(){
-        this.level ++;
-    }
-    
-    public void lisaaScore(int i){
-        this.totalScore += i;
-    }
+    }  
 }

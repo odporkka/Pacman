@@ -5,20 +5,27 @@ package pacman.sovelluslogiikka;
  * Pisteiden annon lisaksi antaa Pacmanille hetkellisen kyvyn syoda haamuja.
  */
 public class Hedelma extends Piste {
-    public Pacman pacman;
 
+    /**
+     * Luo Hedelman.
+     */
     public Hedelma() {
+        super();
     }
     
-    public void setPacman(Pacman p){
-        this.pacman = p;
-    }
-    
-    @Override
-    public int syodaan() {
+    /**
+     * Asettaa hedelman syodyksi, antaa pacmanille kyvyn syoda haamuja ja 
+     * palauttaa hedelmasta saadut pisteet.
+     * @param p
+     * @return pisteet
+     */
+        public int syodaan(Pacman p) {
         this.syoty = true;
-        pacman.annaImmunity();
-        return 50;
+        p.annaImmunity();
+        return 10;
     }
     
+    private void AnnaImmunity(Pacman p){
+        p.annaImmunity();
+    }
 }

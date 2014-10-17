@@ -1,5 +1,6 @@
 package pacman.sovelluslogiikka;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -7,11 +8,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class GridTest {
+public class RuudukkoTest {
 
-    Grid g;
+    Ruudukko g;
 
-    public GridTest() {
+    public RuudukkoTest() {
     }
 
     @BeforeClass
@@ -24,7 +25,7 @@ public class GridTest {
 
     @Before
     public void setUp() {
-        g = new Grid();
+        g = new Ruudukko();
     }
 
     @After
@@ -33,13 +34,13 @@ public class GridTest {
 
     @Test
     public void pisteetAlussaNolla() {
-        assertEquals(0, g.totalScore);
+        assertEquals(0, g.getTotalScore());
     }
 
     @Test
     public void taulukkoOlemassa() {
         boolean onOlemassa = false;
-        if (g.ruudut != null) {
+        if (g.getRuudut() != null) {
             onOlemassa = true;
         }
         assertEquals(true, onOlemassa);
@@ -50,9 +51,10 @@ public class GridTest {
         int leveys= 12;
         int korkeus=11;
         int yht=leveys+korkeus;
-        int taulukonKoko=g.ruudut.size() + g.ruudut.get(0).size();
-        System.out.println(g.ruudut.size());
-        System.out.println(g.ruudut.get(0).size());
+        ArrayList<ArrayList<Ruutu>> r = g.getRuudut();
+        int taulukonKoko=r.size() + r.get(0).size();
+        System.out.println(r.size());
+        System.out.println(r.get(0).size());
         assertEquals(yht, taulukonKoko);
     }
 }

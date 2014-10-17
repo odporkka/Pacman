@@ -37,7 +37,7 @@ public class RuutuTest {
     @Test
     public void testaaKonstruktori() {
         boolean x = false;
-        if (r.sisalto != null) {
+        if (r.getSisalto() != null) {
             x = true;
         }
         assertEquals(true, x);
@@ -47,12 +47,7 @@ public class RuutuTest {
     public void testSetSisalto() {
         Piste p = new Piste();
         r.setSisalto(p);
-        assertEquals(p, r.sisalto);
-    }
-    
-    @Test
-    public void testGetSisalto() {
-        assertEquals(r.sisalto, r.getSisalto());
+        assertEquals(p, r.getSisalto());
     }
 
     @Test
@@ -61,23 +56,4 @@ public class RuutuTest {
         r.vaihdaPisteHedelmaan(h);
         assertEquals(h, r.getSisalto());
     }
-
-    @Test
-    public void testAsetaSuuntaParametrit() {
-        int a = ran.nextInt(2);
-        int b = ran.nextInt(2);
-        int c = ran.nextInt(2);
-        int d = ran.nextInt(2);
-        
-        r.asetaSuuntaParametrit(a, b, c, d);
-        boolean x = true;
-        if (r.suunnat[0]!=a) x=false;
-        if (r.suunnat[1]!=b) x=false;
-        if (r.suunnat[2]!=c) x=false;
-        if (r.suunnat[3]!=d) x=false;
-        
-        assertEquals(x, true);
-        
-    }
-
 }

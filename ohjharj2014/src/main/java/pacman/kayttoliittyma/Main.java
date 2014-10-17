@@ -6,8 +6,8 @@ import javax.swing.SwingUtilities;
 import pacman.sovelluslogiikka.Peli;
 
 /**
- * Main-metodi, joka hoitaa ohjelman kaynnistyksen.
- *
+ * Main-metodi, joka hoitaa ohjelman kaynnistyksen ja sisaltaa loopin
+ * pelitapahtumien ja näkymän päivittämiseen.
  */
 public class Main {
 

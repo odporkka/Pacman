@@ -3,63 +3,83 @@ package pacman.sovelluslogiikka;
 /**
  * Luokka yksittaisia taulukon ruutuja varten. Ruudut sisaltavat Pisteen tai
  * Hedelman ja tiedon siita mihin viereisiin ruutuihin voi liikkua.
- * @author odporkka
  */
-
 public class Ruutu {
 
-    Piste sisalto;
-    int[] suunnat = new int[4];
+    private Piste sisalto;
+    private final int[] suunnat;
 
+    /**
+     * Luo Ruudun ja asettaa sisalloksi uuden Pisteen. Asettaa myös sallitut
+     * kulkusuunnat luodessa arvoksi 0.
+     */
     public Ruutu() {
+        this.suunnat = new int[4];
         this.sisalto = new Piste();
         for (int i = 0; i < 4; i++) {
             suunnat[i]=0;
         }
     }
-
-    //setterit  
-    public void setSisalto(Piste sisalto) {
-        this.sisalto = sisalto;
-    }
-
-    public Piste getSisalto() {
-        return this.sisalto;
-    }
-
-    public void vaihdaPisteHedelmaan(Hedelma h) {
-        this.sisalto = h;
-    }
-
-//    //getterit
-//    public boolean getYlos() {
-//        return this.suunnat[0]==1;
-//    }
-//
-//    public boolean getAlas() {
-//        return this.suunnat[1]==1;
-//    }
-//
-//    public boolean getVasemmalle() {
-//        return this.suunnat[2]==1;
-//    }
-//
-//    public boolean getOikealle() {
-//        return this.suunnat[3]==1;
-//    }
-//
-//    public Piste getSisalto() {
-//        return sisalto;
-//    }
-
     
-//asettaa sallitut kulkusuunnat ruudusta (0=ei sallittu, 1=sallittu)
-//a=ylös,b=alas,c=vasen,d=oikea    
+    /**
+     * Palauttaa true tai false sen mukaan saako parametrin mukaiseen suuntaan
+     * liikkua.
+     * 
+     * @param s
+     * @param c Haluttu suunta
+     * @return true jos saa liikkua, false jos ei
+     */
+    public boolean saakoLiikkua(Suunta s){
+        if (s == Suunta.YLOS) {
+            if (this.suunnat[0] == 1){
+                return true;
+            }
+        } else if (s == Suunta.ALAS) {
+            if (this.suunnat[1] == 1){
+                return true;
+            }
+        } else if (s == Suunta.VASEN) {
+            if (this.suunnat[2] == 1){
+                return true;
+            }
+        } else if (s == Suunta.OIKEA) {
+            if (this.suunnat[3] == 1){
+                return true;
+            }
+        }       
+        return false;       
+    }
+    
+/**
+ * Asettaa sallitut kulkusuunnat. 0 = saa liikkua ja 1 = ei saa liikkua.
+ * 
+ * @param a Ylos
+ * @param b Alas
+ * @param c Vasen
+ * @param d Oikea
+ */    
     void asetaSuuntaParametrit(int a, int b, int c, int d) {
         this.setYlos(a);
         this.setAlas(b);
         this.setVasemmalle(c);
         this.setOikealle(d);
+    }
+    
+    /**
+     * Vaihtaa ruudun sisallon pisteesta hedelmaan.
+     * 
+     * @param h uusi sisalto 
+     */
+    public void vaihdaPisteHedelmaan(Hedelma h) {
+        this.sisalto = h;
+    } 
+
+    public Piste getSisalto() {
+        return this.sisalto;
+    }
+    
+    public void setSisalto(Piste sisalto) {
+        this.sisalto = sisalto;
     }
 
     private void setYlos(int i) {
@@ -84,26 +104,5 @@ public class Ruutu {
         if (i==0 || i==1){
             this.suunnat[3]=i;
         } 
-    }
-    
-    public boolean saakoLiikkua(char c){
-        if (c == 'y') {
-            if (this.suunnat[0] == 1){
-                return true;
-            }
-        } else if (c == 'a') {
-            if (this.suunnat[1] == 1){
-                return true;
-            }
-        } else if (c == 'v') {
-            if (this.suunnat[2] == 1){
-                return true;
-            }
-        } else if (c == 'o') {
-            if (this.suunnat[3] == 1){
-                return true;
-            }
-        }       
-        return false;       
     }
 }

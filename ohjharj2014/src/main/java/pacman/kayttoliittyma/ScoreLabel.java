@@ -1,7 +1,7 @@
 package pacman.kayttoliittyma;
 
 import javax.swing.JLabel;
-import pacman.sovelluslogiikka.Grid;
+import pacman.sovelluslogiikka.Ruudukko;
 
 /**
  *
@@ -10,11 +10,11 @@ import pacman.sovelluslogiikka.Grid;
 
 public class ScoreLabel extends JLabel{
     
-    Grid g;
+    Ruudukko g;
     String s;
     String s2;
 
-    public ScoreLabel(Grid g) {
+    public ScoreLabel(Ruudukko g) {
         super("Score: ");
         this.s = "Score: ";        
         this.g = g;
