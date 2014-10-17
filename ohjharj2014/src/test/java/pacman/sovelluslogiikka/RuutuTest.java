@@ -56,4 +56,44 @@ public class RuutuTest {
         r.vaihdaPisteHedelmaan(h);
         assertEquals(h, r.getSisalto());
     }
+    
+    @Test
+    public void testSaakoLiikkua(){
+        boolean saako = false;
+        if (r.saakoLiikkua(Suunta.YLOS)) saako = true;
+        if (r.saakoLiikkua(Suunta.ALAS)) saako = true;
+        if (r.saakoLiikkua(Suunta.OIKEA)) saako = true;
+        if (r.saakoLiikkua(Suunta.VASEN)) saako = true;
+        assertEquals(false, saako);
+    }
+    
+    @Test
+    public void testAsetaParametrit(){
+        r.asetaSuuntaParametrit(1, 0, 1, 1);
+        boolean x = true;
+        if (!r.saakoLiikkua(Suunta.YLOS)) x = false;
+        if (r.saakoLiikkua(Suunta.ALAS)) x = false;
+        if (!r.saakoLiikkua(Suunta.OIKEA)) x = false;
+        if (!r.saakoLiikkua(Suunta.VASEN)) x = false;
+        assertEquals(true, x);
+    }
+    
+    @Test
+    public void testAsetaParametrit2(){
+        r.asetaSuuntaParametrit(5, -5, 10, 150);
+        boolean vaihtuikoParametrit = false;
+        if (r.saakoLiikkua(Suunta.YLOS)){
+            vaihtuikoParametrit = true;
+        }
+        if (r.saakoLiikkua(Suunta.ALAS)){
+            vaihtuikoParametrit = true;
+        }
+        if (r.saakoLiikkua(Suunta.OIKEA)){
+            vaihtuikoParametrit = true;
+        }
+        if (r.saakoLiikkua(Suunta.VASEN)){
+            vaihtuikoParametrit = true;
+        }
+        assertEquals(false, vaihtuikoParametrit);
+    }
 }

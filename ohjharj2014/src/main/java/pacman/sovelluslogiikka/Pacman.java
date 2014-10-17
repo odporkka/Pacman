@@ -163,7 +163,7 @@ public final class Pacman {
         return seuraavaSuunta;
     }
     
-    private Rectangle getBounds(){
+    public Rectangle getBounds(){
         return new Rectangle(x+5, y+5, 20, 20);
     }
 

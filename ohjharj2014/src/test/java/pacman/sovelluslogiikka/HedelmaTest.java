@@ -18,6 +18,7 @@ import static org.junit.Assert.*;
  * @author odporkka
  */
 public class HedelmaTest {
+    Hedelma h;
     
     public HedelmaTest() {
     }
@@ -32,6 +33,7 @@ public class HedelmaTest {
     
     @Before
     public void setUp() {
+        h = new Hedelma();
     }
     
     @After
@@ -43,4 +45,16 @@ public class HedelmaTest {
         assertEquals(1, 1);
     }
     
+    @Test
+    public void testSyodaan() {
+        h.syodaan();
+        assertEquals(true, h.syoty);
+    }
+    
+    @Test
+    public void annaImmunity() {
+        Pacman p = new Pacman();
+        h.syodaan(p);
+        assertEquals(true, p.getImmuuni());
+    }
 }

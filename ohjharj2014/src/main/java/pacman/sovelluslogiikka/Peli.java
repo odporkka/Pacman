@@ -154,7 +154,7 @@ public class Peli {
             Ruutu r = ruudukko.getRuudut().get(x).get(y);
             syo(r);
 
-            if (this.ruudukko.getTotalScore() % 1100 == 0) {
+            if (this.ruudukko.getKokonaisPisteet() % 1100 == 0) {
                 this.newLevel();
                 return;
             }

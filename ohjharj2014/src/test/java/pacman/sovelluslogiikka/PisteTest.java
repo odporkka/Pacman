@@ -58,4 +58,10 @@ public class PisteTest {
         assertEquals(false, x);
     }
     
+    @Test
+    public void testResetoi(){
+        p.syodaan();
+        p.resetoi();
+        assertEquals(false, p.onkoSyoty());
+    }
 }

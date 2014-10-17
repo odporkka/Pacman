@@ -11,6 +11,10 @@ import java.util.ArrayList;
  */
 public class Ruudukko {
 
+    static int getDeclaredField(int kokonaisPisteet) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     private final ArrayList<ArrayList<Ruutu>> ruudut;
     private int kokonaisPisteet;
     private int level;
@@ -52,10 +56,10 @@ public class Ruudukko {
         return ruudut;
     }
 
-    public int getTotalScore() {
+    public int getKokonaisPisteet() {
         return kokonaisPisteet;
     } 
-    
+
     public int getLevel() {
         return this.level;
     }
